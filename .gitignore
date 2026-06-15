@@ -1,0 +1,16 @@
+venv/
+**pycache**/
+*.pyc
+
+logs/
+*.log
+
+.env
+
+.vscode/
+
+grafana-data/
+prometheus-data/
+
+*.db
+

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Monitoring Dashboard</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+<div class="header">
+    <h1>Python Monitoring Dashboard</h1>
+</div>
+
+<div class="cards">
+
+    <div class="card status-card">
+        <h3>Application Status</h3>
+        <div id="status">Loading...</div>
+    </div>
+
+    <div class="card">
+        <h3>CPU Usage</h3>
+        <div id="cpu">0%</div>
+    </div>
+
+    <div class="card">
+        <h3>Memory Usage</h3>
+        <div id="memory">0%</div>
+    </div>
+
+    <div class="card">
+        <h3>Disk Usage</h3>
+        <div id="disk">0%</div>
+    </div>
+
+    <div class="card">
+        <h3>Uptime</h3>
+        <div id="uptime">0 mins</div>
+    </div>
+
+    <div class="card">
+        <h3>Total Requests</h3>
+        <div id="requests">0</div>
+    </div>
+
+</div>
+
+<div class="chart-grid">
+
+    <div class="chart-card">
+        <h3>CPU Usage Trend</h3>
+        <canvas id="cpuChart"></canvas>
+    </div>
+
+    <div class="chart-card">
+        <h3>Memory Usage Trend</h3>
+        <canvas id="memoryChart"></canvas>
+    </div>
+
+    <div class="chart-card">
+        <h3>Disk Usage Trend</h3>
+        <canvas id="diskChart"></canvas>
+    </div>
+
+</div>
+
+<div class="table-container">
+    <h2>Top Processes</h2>
+
+    <table>
+        <thead>
+        <tr>
+            <th>PID</th>
+            <th>Name</th>
+            <th>CPU %</th>
+        </tr>
+        </thead>
+
+        <tbody id="processTable">
+        </tbody>
+    </table>
+</div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>
