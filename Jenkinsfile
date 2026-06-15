@@ -6,7 +6,8 @@ stages {
     stage('Checkout') {
         steps {
             git branch: 'main',
-                url: 'https://github.com/MyDevopsLearnings/python-monitoring-project.git'
+                credentialsId: 'github-ssh',
+                url: 'git@github.com:MyDevopsLearnings/python-monitoring-project.git'
         }
     }
 
@@ -30,11 +31,9 @@ stages {
     stage('Verify Deployment') {
         steps {
             sh '''
-            sleep 15
-
-            curl -f http://localhost:5000/health
-
+            sleep 20
             docker ps
+            docker exec python-monitoring python -c "import urllib.request; print(urllib.request.urlopen('http://localhost:5000/metrics').read().decode('utf-8'))"
             '''
         }
     }
