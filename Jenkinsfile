@@ -6,7 +6,7 @@ stages {
     stage('Checkout') {
         steps {
             git branch: 'main',
-                url: 'git@github.com:MyDevopsLearnings/python-monitoring-project.git'
+                url: 'https://github.com/MyDevopsLearnings/python-monitoring-project.git'
         }
     }
 
